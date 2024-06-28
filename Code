@@ -1,0 +1,52 @@
+input.onButtonPressed(Button.A, function () {
+    neZha.setMotorSpeed(neZha.MotorList.M1, 35)
+})
+input.onButtonPressed(Button.B, function () {
+    neZha.stopAllMotor()
+})
+neZha.setServoSpeed(neZha.ServoList.S1, 5)
+neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 100)
+basic.forever(function () {
+    if (PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J3, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) < 35) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 115)
+        basic.pause(300)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 100)
+        basic.pause(400)
+    } else if (PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J4, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) < 35) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 85)
+        basic.pause(300)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 100)
+        basic.pause(400)
+    } else if (PlanetX_Basic.checkColor(PlanetX_Basic.ColorList.blue)) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 140)
+        basic.pause(1100)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S1, 100)
+        basic.pause(900)
+    }
+    if (PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J3, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) < 35) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S2, 85)
+        basic.pause(300)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S2, 100)
+        basic.pause(400)
+    } else if (PlanetX_Basic.ultrasoundSensor(PlanetX_Basic.DigitalRJPin.J4, PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm) < 35) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S2, 115)
+        basic.pause(300)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S2, 100)
+        basic.pause(400)
+    } else if (PlanetX_Basic.checkColor(PlanetX_Basic.ColorList.yellow)) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S2, 60)
+        basic.pause(1100)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S2, 100)
+        basic.pause(900)
+    } else if (PlanetX_Basic.checkColor(PlanetX_Basic.ColorList.red)) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S2, 60)
+        basic.pause(1100)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S2, 100)
+        basic.pause(900)
+    } else if (PlanetX_Basic.checkColor(PlanetX_Basic.ColorList.blue)) {
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S2, 60)
+        basic.pause(800)
+        neZha.setServoAngel(neZha.ServoTypeList._180, neZha.ServoList.S2, 100)
+        basic.pause(800)
+    }
+})
